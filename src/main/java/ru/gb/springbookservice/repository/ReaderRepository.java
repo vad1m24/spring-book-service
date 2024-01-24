@@ -20,7 +20,9 @@ public class ReaderRepository {
     @PostConstruct
     public void generateData() {
         readers.addAll(List.of(
-                new ru.gb.springbookservice.model.Reader("Игорь")
+                new ru.gb.springbookservice.model.Reader("Игорь"),
+                new ru.gb.springbookservice.model.Reader("Дмитрий"),
+                new ru.gb.springbookservice.model.Reader("Владимир")
         ));
     }
 

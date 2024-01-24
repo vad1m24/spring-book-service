@@ -33,4 +33,9 @@ public class IssueRepository {
         return issues.stream().filter(it -> Objects.equals(it.getReaderId(), readerId)).collect(Collectors.toSet());
     }
 
+    public List<Issue> getIssues() {
+        return issues;
+    }
+
+
 }

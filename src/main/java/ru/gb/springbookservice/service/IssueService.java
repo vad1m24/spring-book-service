@@ -1,5 +1,6 @@
 package ru.gb.springbookservice.service;
 
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.gb.springbookservice.dto.IssueRequest;
@@ -9,9 +10,11 @@ import ru.gb.springbookservice.repository.BookRepository;
 import ru.gb.springbookservice.repository.IssueRepository;
 import ru.gb.springbookservice.repository.ReaderRepository;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
+@Data
 @Service
 @RequiredArgsConstructor
 public class IssueService {
@@ -45,5 +48,8 @@ public class IssueService {
         return issueRepository.getIssuesByReaderId(readerId);
     }
 
+    public List<Issue> getAll() {
+        return issueRepository.getIssues();
+    }
 
 }

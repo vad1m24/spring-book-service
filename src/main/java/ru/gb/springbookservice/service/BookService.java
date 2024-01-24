@@ -1,5 +1,6 @@
 package ru.gb.springbookservice.service;
 
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.gb.springbookservice.dto.BookRequest;
@@ -8,6 +9,7 @@ import ru.gb.springbookservice.repository.BookRepository;
 
 import java.util.List;
 
+@Data
 @Service
 public class BookService {
 

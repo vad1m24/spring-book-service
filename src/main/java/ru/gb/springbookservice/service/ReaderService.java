@@ -1,5 +1,6 @@
 package ru.gb.springbookservice.service;
 
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.gb.springbookservice.dto.ReaderRequest;
@@ -10,6 +11,7 @@ import ru.gb.springbookservice.repository.ReaderRepository;
 import java.util.List;
 import java.util.Set;
 
+@Data
 @Service
 @RequiredArgsConstructor
 public class ReaderService {

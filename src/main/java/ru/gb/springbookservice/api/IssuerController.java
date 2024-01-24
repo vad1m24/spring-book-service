@@ -10,6 +10,7 @@ import ru.gb.springbookservice.exceptions.ConflictException;
 import ru.gb.springbookservice.model.Issue;
 import ru.gb.springbookservice.service.IssueService;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Slf4j
@@ -19,11 +20,6 @@ public class IssuerController {
 
     @Autowired
     private IssueService service;
-
-//  @PutMapping
-//  public void returnBook(long issueId) {
-//    // найти в репозитории выдачу и проставить ей returned_at
-//  }
 
     @PostMapping
     public ResponseEntity<Issue> issueBook(@RequestBody IssueRequest request) {
@@ -40,6 +36,11 @@ public class IssuerController {
 
 
         return ResponseEntity.status(HttpStatus.CONFLICT).body(issue);
+    }
+
+    @GetMapping
+    public List<Issue> getAll() {
+        return service.getAll();
     }
 
     @GetMapping("/{id}")
