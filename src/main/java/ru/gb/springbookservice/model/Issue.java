@@ -1,31 +1,35 @@
 package ru.gb.springbookservice.model;
 
+import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
+
 
 /**
  * Запись о факте выдачи книги (в БД)
  */
 @Data
-// @Entity
+@Entity
+@Table(name = "issues")
+@NoArgsConstructor
 public class Issue {
 
-    public static long sequence = 1L;
-
-    private final long id;
-    private final long bookId;
-    private final long readerId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "bookId")
+    private Long bookId;
+    @Column(name = "readerId")
+    private Long readerId;
 
     /**
      * Дата выдачи
      */
-    private final LocalDateTime timestamp;
+    private LocalDateTime timestamp;
 
     public Issue(long bookId, long readerId) {
-        this.id = sequence++;
         this.bookId = bookId;
         this.readerId = readerId;
         this.timestamp = LocalDateTime.now();

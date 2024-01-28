@@ -1,35 +1,32 @@
 package ru.gb.springbookservice.service;
 
-import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.gb.springbookservice.dto.BookRequest;
 import ru.gb.springbookservice.model.Book;
-import ru.gb.springbookservice.repository.BookRepository;
+import ru.gb.springbookservice.repository.BooksRepository;
 
 import java.util.List;
 
-@Data
+@RequiredArgsConstructor
 @Service
 public class BookService {
 
-    @Autowired
-    private BookRepository bookRepository;
+    private final BooksRepository bookRepository;
 
+    public Book addBook(BookRequest bookRequest) {
+        return bookRepository.save(new Book(bookRequest.getName()));
+    }
 
     public List<Book> getAll() {
-        return bookRepository.getAll();
+        return bookRepository.findAll();
     }
 
     public Book getBookById(long id) {
-        return bookRepository.getBookById(id);
-    }
-
-    public Book addBook(BookRequest bookRequest) {
-        return bookRepository.addBook(new Book(bookRequest.getName()));
+        return bookRepository.findById(id).orElse(null);
     }
 
     public void deleteBookById(long id) {
-        bookRepository.deleteBookById(id);
+        bookRepository.deleteById(id);
     }
 }

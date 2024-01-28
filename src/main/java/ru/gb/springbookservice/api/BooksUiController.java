@@ -21,14 +21,4 @@ public class BooksUiController {
         return "book";
     }
 
-//    @GetMapping("/home")
-//    public String home(@RequestParam(required = false) String name, Model model){
-//        if (name!=null){
-//            model.addAttribute("name", name);
-//        } else {
-//            model.addAttribute("name", "world");
-//        }
-//        return "home";
-//    }
-
 }

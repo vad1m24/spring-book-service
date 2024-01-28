@@ -1,11 +1,13 @@
 package ru.gb.springbookservice.dto;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Запрос на выдачу
  */
 @Data
+@NoArgsConstructor
 public class IssueRequest {
 
     /**
@@ -18,4 +20,8 @@ public class IssueRequest {
      */
     private long bookId;
 
+    public IssueRequest(long readerId, long bookId) {
+        this.readerId = readerId;
+        this.bookId = bookId;
+    }
 }

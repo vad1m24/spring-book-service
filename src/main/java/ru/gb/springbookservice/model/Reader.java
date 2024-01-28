@@ -1,19 +1,22 @@
 package ru.gb.springbookservice.model;
 
+import jakarta.persistence.*;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @Data
-@RequiredArgsConstructor
+@Entity
+@NoArgsConstructor
+@Table(name = "readers")
 public class Reader {
 
-    public static long sequence = 1L;
-
-    private final long id;
-    private final String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column(name = "name")
+    private String name;
 
     public Reader(String name) {
-        this(sequence++, name);
+        this.name = name;
     }
-
 }

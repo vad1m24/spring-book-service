@@ -1,19 +1,23 @@
 package ru.gb.springbookservice.model;
 
+import jakarta.persistence.*;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
+
 
 @Data
-@RequiredArgsConstructor
+@Entity
+@Table(name = "books")
+@NoArgsConstructor
 public class Book {
 
-    public static long sequence = 1L;
-
-    private final long id;
-    private final String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "name")
+    private String name;
 
     public Book(String name) {
-        this(sequence++, name);
+        this.name = name;
     }
-
 }
