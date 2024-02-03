@@ -1,5 +1,7 @@
 package ru.gb.springbookservice.api;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,25 +12,17 @@ import ru.gb.springbookservice.service.ReaderService;
 
 @Controller
 @RequestMapping("/ui")
+@Tag(name = "UI")
 @RequiredArgsConstructor
 public class ReadersUiController {
 
     private final ReaderService readerService;
 
     @GetMapping("/readers")
+    @Operation(summary = "get all readers", description = "Получение таблицы с перечнем всех читателей")
     public String library( Model model) {
         model.addAttribute("readers", readerService.getAll());
         return "reader";
     }
-
-//    @GetMapping("/home")
-//    public String home(@RequestParam(required = false) String name, Model model){
-//        if (name!=null){
-//            model.addAttribute("name", name);
-//        } else {
-//            model.addAttribute("name", "world");
-//        }
-//        return "home";
-//    }
 
 }

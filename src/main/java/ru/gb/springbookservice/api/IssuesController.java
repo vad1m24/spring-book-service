@@ -1,5 +1,7 @@
 package ru.gb.springbookservice.api;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,12 +18,26 @@ import java.util.NoSuchElementException;
 @Slf4j
 @RestController
 @RequestMapping("/issue")
-public class IssuerController {
+@Tag(name = "Выдачи")
+public class IssuesController {
 
     @Autowired
     private IssueService service;
 
+    @GetMapping
+    @Operation(summary = "get all issues", description = "Получение списка всех выдач книг читателям")
+    public List<Issue> getAll() {
+        return service.getAll();
+    }
+
+    @GetMapping("/{id}")
+    @Operation(summary = "get issue by id", description = "Получение выдачи книги по идентификационному номеру")
+    public Issue getIssueById(@PathVariable long id) {
+        return service.getIssueById(id);
+    }
+
     @PostMapping
+    @Operation(summary = "add a new issue of the book", description = "Создание новой выдачи книги читателю")
     public ResponseEntity<Issue> issueBook(@RequestBody IssueRequest request) {
         log.info("Получен запрос на выдачу: readerId = {}, bookId = {}", request.getReaderId(), request.getBookId());
 
@@ -34,18 +50,7 @@ public class IssuerController {
             return ResponseEntity.status(409).build();
         }
 
-
         return ResponseEntity.status(HttpStatus.CONFLICT).body(issue);
-    }
-
-    @GetMapping
-    public List<Issue> getAll() {
-        return service.getAll();
-    }
-
-    @GetMapping("/{id}")
-    public Issue getIssueById(@PathVariable long id) {
-        return service.getIssueById(id);
     }
 
 }
