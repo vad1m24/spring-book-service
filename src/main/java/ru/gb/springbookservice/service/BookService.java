@@ -1,5 +1,6 @@
 package ru.gb.springbookservice.service;
 
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.gb.springbookservice.dto.BookRequest;
@@ -8,8 +9,9 @@ import ru.gb.springbookservice.repository.BooksRepository;
 
 import java.util.List;
 
-@RequiredArgsConstructor
+@Data
 @Service
+@RequiredArgsConstructor
 public class BookService {
 
     private final BooksRepository bookRepository;
