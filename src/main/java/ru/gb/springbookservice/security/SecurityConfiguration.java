@@ -15,10 +15,10 @@ public class SecurityConfiguration {
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity)throws Exception {
         return httpSecurity
                 .authorizeHttpRequests(registry -> registry
-                        .requestMatchers("/ui/**").authenticated()
-                        .requestMatchers("/issue/**").hasAuthority("admin")
-                        .requestMatchers("/reader/**").hasAuthority("reader")
-                        .requestMatchers("/book/**").authenticated()
+//                        .requestMatchers("/ui/**").authenticated()
+//                        .requestMatchers("/issue/**").hasAuthority("admin")
+//                        .requestMatchers("/reader/**").hasAuthority("reader")
+//                        .requestMatchers("/book/**").authenticated()
                         .anyRequest().permitAll()
                 )
                 .formLogin(Customizer.withDefaults())
