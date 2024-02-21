@@ -6,12 +6,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import ru.gb.dto.ReaderRequest;
-import ru.gb.model.Issue;
 import ru.gb.model.Reader;
 import ru.gb.service.ReaderService;
 
 import java.util.List;
-import java.util.Set;
 
 @Slf4j
 @RestController
@@ -33,12 +31,6 @@ public class ReaderController {
     public Reader getReaderById(@PathVariable long id) {
         return readerService.getReaderById(id);
     }
-
-//    @GetMapping("/{readerId}/issue")
-//    @Operation(summary = "get issue by reader's id", description = "Получение списка выдач по идентификационному номеру читателя")
-//    public Set<Issue> getIssuesByReaderId(@PathVariable long readerId) {
-//        return readerService.getIssuesByReaderId(readerId);
-//    }
 
     @PostMapping
     @Operation(summary = "add a new reader", description = "Добавление нового читателя")

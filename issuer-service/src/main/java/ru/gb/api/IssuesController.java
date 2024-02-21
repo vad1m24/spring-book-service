@@ -50,7 +50,7 @@ public class IssuesController {
             return ResponseEntity.status(409).build();
         }
 
-        return ResponseEntity.status(HttpStatus.CONFLICT).body(issue);
+        return ResponseEntity.status(HttpStatus.OK).body(issue);
     }
 
 }

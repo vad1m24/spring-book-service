@@ -1,4 +1,4 @@
-package ru.gb.service;
+package ru.gb.config;
 
 import io.netty.resolver.DefaultAddressResolverGroup;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
