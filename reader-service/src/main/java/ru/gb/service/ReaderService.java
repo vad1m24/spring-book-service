@@ -34,7 +34,4 @@ public class ReaderService {
         readerRepository.deleteById(id);
     }
 
-//    public Set<Issue> getIssuesByReaderId(long readerId) {
-//        return issueService.getIssuesByReaderId(readerId);
-//    }
 }
