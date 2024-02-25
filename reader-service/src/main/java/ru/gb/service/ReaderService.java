@@ -6,12 +6,14 @@ import org.springframework.stereotype.Service;
 import ru.gb.dto.ReaderRequest;
 import ru.gb.model.Reader;
 import ru.gb.repository.ReadersRepository;
+import ru.gb.utils.Timer;
 
 import java.util.List;
 
 @Data
 @Service
 @RequiredArgsConstructor
+@Timer
 public class ReaderService {
 
     private final ReadersRepository readerRepository;

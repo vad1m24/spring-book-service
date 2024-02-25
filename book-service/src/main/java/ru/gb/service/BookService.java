@@ -6,14 +6,14 @@ import org.springframework.stereotype.Service;
 import ru.gb.dto.BookRequest;
 import ru.gb.model.Book;
 import ru.gb.repository.BooksRepository;
-//import ru.ru.gb.utils.Timer;
+import ru.gb.utils.Timer;
 
 import java.util.List;
 
 @Data
 @Service
 @RequiredArgsConstructor
-//@Timer
+@Timer
 public class BookService {
 
     private final BooksRepository bookRepository;

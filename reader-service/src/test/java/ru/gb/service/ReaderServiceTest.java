@@ -1,9 +1,11 @@
 package ru.gb.service;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import ru.gb.dto.ReaderRequest;
 import ru.gb.model.Reader;
@@ -30,8 +32,7 @@ public class ReaderServiceTest {
 
     @Test
     public void testAddReader() {
-        when(readerRepository.save(any(Reader.class))).thenReturn(prepareReaders());
-
+        when(readerRepository.save(any())).thenReturn(prepareReaders());
         Reader reader = readerService.addReader(prepareRequest());
 
         verify(readerRepository).save(any(Reader.class));

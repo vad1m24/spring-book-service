@@ -7,6 +7,7 @@ import ru.gb.dto.IssueRequest;
 import ru.gb.exceptions.ConflictException;
 import ru.gb.model.Issue;
 import ru.gb.repository.IssuesRepository;
+import ru.gb.utils.Timer;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -16,6 +17,7 @@ import java.util.Set;
 @Data
 @Service
 @RequiredArgsConstructor
+@Timer
 public class IssueService {
 
     // спринг это все заинжектит
